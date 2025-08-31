@@ -97,7 +97,7 @@ async function activate(context) {
     const titleFg  = (rule && (rule.titleBarFg || rule.fg)) || defaultColors.fg;
 
     if (showStatusBar) {
-      statusItem.text = `$(beacon) ${branch}`;
+      statusItem.text = `$(lightbulb) ${branch}`;
       statusItem.tooltip = `Current Git branch - Click to copy`;
       statusItem.color = statusFg;
       statusItem.show();
