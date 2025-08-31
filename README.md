@@ -23,3 +23,9 @@ Shows a big status bar badge and (optionally) recolors your **title bar** and **
   { "pattern": "^feature(\\/.*)?$", "bg": "#3f51b5", "fg": "#ffffff" }
 ],
 "branchHighlighter.defaultColors": { "bg": "#444444", "fg": "#ffffff" }
+```
+
+## Download links
+
+- VSCode Market Place: [https://marketplace.visualstudio.com/items?itemName=ORGanizersolutions.branch-beacon]
+- Open VSX Registry (e.g. for Cursor): [https://open-vsx.org/extension/ORGanizersolutions/branch-beacon]
