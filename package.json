@@ -1,0 +1,100 @@
+{
+    "name": "branch-highlighter",
+    "displayName": "Branch Beacon",
+    "description": "Highly visible branch indicator with regex-based color rules.",
+    "version": "0.1.0",
+    "publisher": "your-publisher-id",
+    "icon": "assets/icon.png",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/enreeco/branch-beacon-vscode-ext.git"
+    },
+    "keywords": ["git", "branch", "color", "indicator", "statusbar", "titlebar"],
+    "license": "MIT",
+    "engines": {
+      "vscode": "^1.86.0"
+    },
+    "categories": ["Other"],
+    "activationEvents": ["onStartupFinished"],
+    "main": "./src/extension.js",
+    "contributes": {
+      "configuration": {
+        "title": "Branch Beacon",
+        "properties": {
+          "branchHighlighter.showStatusBar": {
+            "type": "boolean",
+            "default": true,
+            "description": "Show the current branch in the status bar."
+          },
+          "branchHighlighter.updateTitleBarColors": {
+            "type": "boolean",
+            "default": true,
+            "description": "Apply per-branch colors to title bar and status bar using workbench color customizations."
+          },
+          "branchHighlighter.rules": {
+            "type": "array",
+            "default": [
+              { "pattern": "^(main|master|prod)$", "bg": "#1d9f61", "fg": "#ffffff" },
+              { "pattern": "^stage|preprod|release(\\/.*)?$", "bg": "#ff9800", "fg": "#000000" },
+              { "pattern": "^hotfix|bugfix(\\/.*)?$", "bg": "#e53935", "fg": "#ffffff" },
+              { "pattern": "^feature(\\/.*)?$", "bg": "#3f51b5", "fg": "#ffffff" }
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "pattern": { "type": "string", "description": "JavaScript RegExp (no slashes, treated as-is)." },
+                "bg": { "type": "string", "description": "Background color (hex) applied if no overrides provided." },
+                "fg": { "type": "string", "description": "Foreground color (hex) applied if no overrides provided." },
+                "statusBg": { "type": "string", "description": "Override only the status bar background." },
+                "statusFg": { "type": "string", "description": "Override only the status bar foreground." },
+                "titleBarBg": { "type": "string", "description": "Override only the title bar background." },
+                "titleBarFg": { "type": "string", "description": "Override only the title bar foreground." }
+              },
+              "required": ["pattern", "bg", "fg"]
+            },
+            "description": "Ordered list of regex-based branch color rules. First match wins."
+          },
+          "branchHighlighter.defaultColors": {
+            "type": "object",
+            "default": { "bg": "#444444", "fg": "#ffffff" },
+            "properties": {
+              "bg": { "type": "string" },
+              "fg": { "type": "string" }
+            },
+            "description": "Fallback colors when no rule matches."
+          },
+          "branchHighlighter.debug": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable debug logging to the Developer Console (Help > Toggle Developer Tools)."
+          }
+        }
+      },
+      "commands": [
+        {
+          "command": "branchHighlighter.copyBranch",
+          "title": "Branch Beacon: Copy Current Branch"
+        },
+        {
+          "command": "branchHighlighter.refresh",
+          "title": "Branch Beacon: Refresh"
+        },
+        {
+          "command": "branchHighlighter.debug",
+          "title": "Branch Beacon: Debug Info"
+        },
+        {
+          "command": "branchHighlighter.testRegex",
+          "title": "Branch Beacon: Test Regex Patterns"
+        }
+      ]
+    },
+    "devDependencies": {
+      "vsce": "^2.15.0"
+    },
+    "scripts": {
+      "clean": "rm -rf dist",
+      "package": "mkdir -p dist && npx vsce package --out dist/branch-highlighter-$(node -p \"require('./package.json').version\").vsix"
+    }
+  }
+  
