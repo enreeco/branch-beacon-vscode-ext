@@ -1,9 +1,9 @@
 {
-    "name": "branch-highlighter",
+    "name": "branch-beacon",
     "displayName": "Branch Beacon",
     "description": "Highly visible branch indicator with regex-based color rules.",
     "version": "0.1.0",
-    "publisher": "your-publisher-id",
+    "publisher": "ORGanizersolutions",
     "icon": "assets/icon.png",
     "repository": {
       "type": "git",
