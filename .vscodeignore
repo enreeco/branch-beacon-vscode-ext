@@ -1,5 +1,5 @@
 .git/**
-.gitignore/**
+.gitignore
 node_modules/**
 .vscode/**
 dist/**
