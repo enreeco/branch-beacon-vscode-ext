@@ -2,7 +2,7 @@
     "name": "branch-beacon",
     "displayName": "Branch Beacon",
     "description": "Highly visible branch indicator with regex-based color rules.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "ORGanizersolutions",
     "icon": "assets/icon.png",
     "repository": {
