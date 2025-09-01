@@ -11,6 +11,20 @@ Shows a big status bar badge and (optionally) recolors your **title bar** and **
   - **Branch Beacon: Copy Current Branch**
   - **Branch Beacon: Refresh**
 
+## Screenshots
+
+### Title Bar Coloring
+![Title Bar Coloring](assets/screenshots/title-bar-coloring.png)
+*Title bar and status bar are recolored based on branch name patterns*
+
+### Status Bar Badge
+![Status Bar Badge](assets/screenshots/status-bar-badge.png)
+*The current branch is prominently displayed in the status bar with custom colors*
+
+### Different Branch Types
+![Branch Types](assets/screenshots/branch-types.png)
+*Different colors for main, feature, hotfix, and staging branches*
+
 ## Settings
 
 ```jsonc
